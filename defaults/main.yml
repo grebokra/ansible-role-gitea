@@ -1,0 +1,8 @@
+---
+gitea_binary_download_url: 'https://dl.gitea.io/gitea/1.16.0/gitea-1.16.0-linux-amd64'
+
+gitea_dependences:
+  - git
+gitea_user: git
+gitea_group: git
+gitea_home: /var/lib/gitea/

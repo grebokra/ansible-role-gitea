@@ -1,0 +1,60 @@
+---
+- block:
+    - name: Install gitea dependences
+      yum:
+        name: "{{ item }}"
+        state: latest
+      with_items: "{{ gitea_dependences }}"
+  when: ansible_os_family == "RedHat"
+
+- block:
+    - name: Download gitea
+      get_url:
+        url: "{{ gitea_binary_download_url }}"
+        dest: /usr/local/bin/gitea
+        owner: root
+        group: root
+        mode: '0755'
+    
+    - name: Create gitea user
+      user:
+        name: "{{ gitea_user }}"
+        system: yes
+        shell: /bin/bash
+        group: "{{ gitea_group }}"
+        home: "/home/{{ gitea_user }}"
+        password: '!'
+        password_lock: yes
+        state: present
+
+    - name: Create /var/lib/gitea/ directory structure
+      file:
+        name: "{{ item }}"
+        state: directory
+        owner: "{{ gitea_user }}"
+        group: "{{ gitea_group }}"
+        mode: '0750'
+      with_items:
+        - /var/lib/gitea/
+        - /var/lib/gitea/custom/
+        - /var/lib/gitea/data/
+        - /var/lib/gitea/log/
+
+    - name: Create /etc/gitea directory structure
+      file:
+        name: /etc/gitea
+        state: directory
+        owner: root
+        group: "{{ gitea_group }}"
+        mode: '0770'
+
+- include_tasks: service.yml
+
+
+# systemd to be reloaded the first time because
+#  it is the only way Systemd is going to be aware of the new unit file.
+
+
+# Don't forget to reconfigure later to
+# chmod 750 /etc/gitea
+# chmod 640 /etc/gitea/app.ini

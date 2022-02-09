@@ -1,0 +1,10 @@
+---
+- name: "systemd daemon reload"
+  systemd:
+    daemon_reload: true
+
+- name: "Restart gitea"
+  service:
+    name: gitea
+    state: restarted
+    enabled: yes

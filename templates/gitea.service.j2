@@ -1,0 +1,15 @@
+[Unit]
+Description=Gitea (Git with a cup of tea)
+After=syslog.target
+After=network.target
+
+[Service]
+User={{ gitea_user }}
+Group={{ gitea_group }}
+ExecStart=/usr/local/bin/gitea web --config /etc/gitea/gitea.ini
+Restart=on-failure
+WorkingDirectory={{ gitea_home }}
+Environment=USER={{ gitea_user }} HOME=/home/{{ gitea_user }} GITEA_WORK_DIR={{ gitea_home }}
+
+[Install]
+WantedBy=multi-user.target
