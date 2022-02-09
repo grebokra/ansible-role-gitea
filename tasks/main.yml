@@ -16,6 +16,11 @@
         group: root
         mode: '0755'
     
+    - name: Create gitea group
+      group:
+        name: "{{ gitea_group }}"
+        state: present
+
     - name: Create gitea user
       user:
         name: "{{ gitea_user }}"
