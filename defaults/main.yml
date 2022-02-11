@@ -3,6 +3,35 @@ gitea_binary_download_url: 'https://dl.gitea.io/gitea/1.16.0/gitea-1.16.0-linux-
 
 gitea_dependences:
   - git
+
+gitea_home: /var/lib/gitea/
+gitea_app_name: Gitea
 gitea_user: git
 gitea_group: git
-gitea_home: /var/lib/gitea/
+
+gitea_db_type: postgres
+gitea_db_host: 127.0.0.1:5432
+gitea_db_name: gitea
+gitea_db_user: gitea
+gitea_db_password: giteasupersecretpass
+gitea_db_ssl_mode: disable
+gitea_log_sql: false
+
+gitea_repository_root: data/gitea-repositories/
+
+gitea_protocol: http
+gitea_domain: localhost
+gitea_http_port: 3000
+gitea_ssh_domain: localhost
+gitea_ssh_port: 22
+
+gitea_disable_registration: false
+gitea_enable_captcha: false
+gitea_require_signin: true
+gitea_show_registration_button: true
+
+gitea_install_lock: false
+gitea_secret_key:
+gitea_internal_token:
+gitea_login_remember_days: 30
+gitea_min_password_length: 8

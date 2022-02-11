@@ -53,6 +53,15 @@
         group: "{{ gitea_group }}"
         mode: '0770'
 
+    - name: "Setup gitea.ini config file"
+      template:
+        src: gitea.ini.j2
+        dest: /etc/gitea/gitea.ini
+        owner: root
+        group: git
+        mode: 0664
+      notify: "Restart gitea"
+
 - include_tasks: service.yml
 
 

@@ -1,0 +1,82 @@
+;; This file is managed by Ansible :D
+;; see https://docs.gitea.io/en-us/config-cheat-sheet/ for additional documentation.
+
+APP_NAME = {{ gitea_app_name }}
+RUN_USER = {{ gitea_user }}
+RUN_MODE = prod
+
+
+[database]
+DB_TYPE = {{ gitea_db_type }}
+HOST = {{ gitea_db_host }}
+NAME = {{ gitea_db_name }}
+USER = {{ gitea_db_user }}
+PASSWD = {{ gitea_db_password }}
+SCHEMA =
+SSL_MODE= {{ gitea_db_ssl_mode }}
+CHARSET  = utf8
+PATH     = {{ gitea_home }}/data/gitea.db
+LOG_SQL  = {{ gitea_log_sql }}
+
+
+[repository]
+ROOT = {{ gitea_repository_root }}
+
+
+[server]
+PROTOCOL = {{ gitea_protocol }}
+DOMAIN = {{ gitea_domain }}
+HTTP_PORT = {{ gitea_http_port }}
+SSH_DOMAIN = {{ gitea_ssh_domain }}
+DISABLE_SSH = false
+SSH_PORT = {{ gitea_ssh_port }}
+LFS_START_SERVER = true
+LFS_CONTENT_PATH = {{ gitea_home }}/data/lfs
+OFFLINE_MODE = true
+
+
+[mailer]
+ENABLED = false
+
+
+[service]
+REGISTER_EMAIL_CONFIRM = false
+ENABLE_NOTIFY_MAIL = false
+DISABLE_REGISTRATION = {{ gitea_disable_registration }}
+ALLOW_ONLY_EXTERNAL_REGISTRATION  = false
+ENABLE_CAPTCHA = {{ gitea_enable_captcha }}
+REQUIRE_SIGNIN_VIEW = {{ gitea_require_signin }}
+DEFAULT_KEEP_EMAIL_PRIVATE = false
+DEFAULT_ALLOW_CREATE_ORGANIZATION = true
+DEFAULT_ENABLE_TIMETRACKING = true
+NO_REPLY_ADDRESS = noreply.localhost
+SHOW_REGISTRATION_BUTTON = {{ gitea_show_registration_button }}
+
+
+[picture]
+DISABLE_GRAVATAR = true
+ENABLE_FEDERATED_AVATAR = false
+
+
+[openid]
+ENABLE_OPENID_SIGNIN = true
+ENABLE_OPENID_SIGNUP = true
+
+
+[session]
+PROVIDER = file
+
+
+[log]
+MODE = console
+LEVEL = info
+ROOT_PATH = {{ gitea_home }}/log
+ROUTER = console
+
+
+[security]
+INSTALL_LOCK = {{ gitea_install_lock }}
+SECRET_KEY = {{ gitea_secret_key }}
+INTERNAL_TOKEN = {{ gitea_internal_token }}
+LOGIN_REMEMBER_DAYS = {{ gitea_login_remember_days }}
+MIN_PASSWORD_LENGTH = {{ gitea_min_password_length }}
