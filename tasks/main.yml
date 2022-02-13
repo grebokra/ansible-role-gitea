@@ -8,6 +8,11 @@
   when: ansible_os_family == "RedHat"
 
 - block:
+    - name: Check if gitea binary is present
+      stat:
+        path: /usr/local/bin/gitea
+      register: gitea_bin_present
+      
     - name: Download gitea
       get_url:
         url: "{{ gitea_binary_download_url }}"
@@ -15,6 +20,7 @@
         owner: root
         group: root
         mode: '0755'
+      when: not gitea_bin_present.stat.exists
     
     - name: Create gitea group
       group:
