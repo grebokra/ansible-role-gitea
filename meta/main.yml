@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Georgy Melnikov
+  description: Ansible role for provisioning gitea instance
+  min_ansible_version: 2.11.6
+  license: MIT
+  galaxy_tags:
+    - git
+    - gitea
+    - selfhosted
+  platforms:
+    - name: CentOS
+      versions:
+        - 8
