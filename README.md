@@ -4,3 +4,8 @@ The purpose of this role is to configure and manage [gitea](https://gitea.io) in
 This role made for use with my private gitea server. 
 
 Use on your own risk, because there are no docs yet.
+
+## How to install?
+```bash
+ansible-galaxy install git+https://github.com/kotobun/ansible-role-gitea -p <roles directory>
+```
