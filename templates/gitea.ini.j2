@@ -22,7 +22,6 @@ LOG_SQL  = {{ gitea_log_sql }}
 [repository]
 ROOT = {{ gitea_repository_root }}
 
-
 [server]
 PROTOCOL = {{ gitea_protocol }}
 DOMAIN = {{ gitea_domain }}
@@ -33,6 +32,7 @@ SSH_PORT = {{ gitea_ssh_port }}
 LFS_START_SERVER = true
 LFS_CONTENT_PATH = {{ gitea_home }}/data/lfs
 OFFLINE_MODE = true
+APP_DATA_PATH = {{ gitea_home }}/data
 
 
 [mailer]
