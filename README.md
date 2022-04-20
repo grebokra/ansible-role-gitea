@@ -7,5 +7,5 @@ Use on your own risk, because there are no docs yet.
 
 ## How to install?
 ```bash
-ansible-galaxy install git+https://github.com/kotobun/ansible-role-gitea -p <roles directory>
+ansible-galaxy install git+https://github.com/grebokra/ansible-role-gitea -p <roles directory>
 ```
