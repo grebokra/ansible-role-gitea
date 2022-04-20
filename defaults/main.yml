@@ -17,7 +17,7 @@ gitea_db_password: giteasupersecretpass
 gitea_db_ssl_mode: disable
 gitea_log_sql: false
 
-gitea_repository_root: data/gitea-repositories/
+gitea_repository_root: "{{ gitea_home }}data/gitea-repositories/"
 
 gitea_protocol: http
 gitea_domain: localhost
