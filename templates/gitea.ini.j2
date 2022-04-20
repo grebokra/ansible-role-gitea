@@ -69,9 +69,11 @@ PROVIDER = file
 
 [log]
 MODE = console
-LEVEL = info
+LEVEL = debug
 ROOT_PATH = {{ gitea_home }}/log
 ROUTER = console
+COLORIZE = false
+ENABLE_SSH_LOG = true
 
 
 [security]
