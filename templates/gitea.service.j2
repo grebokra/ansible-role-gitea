@@ -10,6 +10,8 @@ ExecStart=/usr/local/bin/gitea web --config /etc/gitea/gitea.ini
 Restart=on-failure
 WorkingDirectory={{ gitea_home }}
 Environment=USER={{ gitea_user }} HOME=/home/{{ gitea_user }} GITEA_WORK_DIR={{ gitea_home }}
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
 
 [Install]
 WantedBy=multi-user.target
