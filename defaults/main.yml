@@ -24,6 +24,7 @@ gitea_domain: localhost
 gitea_http_port: 3000
 gitea_ssh_domain: localhost
 gitea_ssh_port: 22
+gitea_root_url: http://localhost:3000/
 
 gitea_disable_registration: false
 gitea_enable_captcha: false
