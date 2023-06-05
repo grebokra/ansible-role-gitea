@@ -20,7 +20,7 @@
         owner: root
         group: root
         mode: '0755'
-      when: not gitea_bin_present.stat.exists
+      when: not gitea_bin_present.stat.exists or gitea_upgrade
     
     - name: Create gitea group
       group:
